@@ -20,15 +20,12 @@ const config = {
   redirectUrl: 'com.auth:/callback',
   scopes: ['user_info'],
   serviceConfiguration: {
-    authorizationEndpoint: 'https://10.0.2.2:9081/auth/oauth/authorize',
-    tokenEndpoint: 'https://10.0.2.2:9081/auth/oauth/token',
+    authorizationEndpoint: 'https://gekko.peterlauhn.com:9081/auth/oauth/authorize',
+    tokenEndpoint: 'https://gekko.peterlauhn.com:9081/auth/oauth/token',
     // revocationEndpoint: 'https://demo.identityserver.io/connect/revoke',
   },
   usePKCE: false,
-  // clientSecret: 'fDw7Mpkk5czHNuSRtmhGmAGL42CaxQB9',
-  // additionalParameters:{
-  //   response_type: 'code',
-  // }
+  clientSecret: 'fDw7Mpkk5czHNuSRtmhGmAGL42CaxQB9',
 };
 
 class App extends React.Component {
@@ -50,8 +47,8 @@ class App extends React.Component {
         refreshToken: newAuthState.refreshToken,
       });
     } catch (error) {
-      console.log(error);
-      Alert.alert('Failed to log in', error.message);
+      // console.log(error);
+      Alert.alert('Failed to log in', error.message + error.code);
     }
   };
 
